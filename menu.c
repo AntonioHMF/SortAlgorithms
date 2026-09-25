@@ -24,12 +24,12 @@ int exibirMenuPrincipal() {
     printf("  =======================================================\n");
     printf("         AVALIACAO DE DESEMPENHO - ORDENACAO             \n");
     printf("  =======================================================\n");
-    printf("  [01] Bubble Sort            [07] Heap Sort             \n");
-    printf("  [02] Insertion Sort         [08] Bucket Sort           \n");
-    printf("  [03] Selection Sort         [09] Radix Sort (LSD)      \n");
-    printf("  [04] Merge Sort             [10] Counting Sort         \n");
-    printf("  [05] Quick Sort             [11] Tim Sort              \n");
-    printf("  [06] Shell Sort                                        \n");
+    printf("  [01] %-16s            [07] %-16s                       \n", nomesAlgoritmos[1], nomesAlgoritmos[7]);
+    printf("  [02] %-16s            [08] %-16s                       \n", nomesAlgoritmos[2], nomesAlgoritmos[8]);
+    printf("  [03] %-16s            [09] %-16s                       \n", nomesAlgoritmos[3], nomesAlgoritmos[9]);
+    printf("  [04] %-16s            [10] %-16s                       \n", nomesAlgoritmos[4], nomesAlgoritmos[10]);
+    printf("  [05] %-16s            [11] %-16s                       \n", nomesAlgoritmos[5], nomesAlgoritmos[11]);
+    printf("  [06] %-16s                                             \n", nomesAlgoritmos[6]);
     printf("  -------------------------------------------------------\n");
     printf("  [00] Sair do Programa                                  \n");
     printf("  =======================================================\n");
@@ -46,7 +46,7 @@ int exibirMenuSecundario(int escolhaALG){
     printf("  +-----------------------------------------------------+\n");
     printf("  |            CONFIGURACAO DE ENTRADA DE DADOS         |\n");
     printf("  +-----------------------------------------------------+\n");
-    printf("  | Algoritmo selecionado: [%02d]                       |\n", nomesAlgoritmos[escolhaALG]);
+    printf("  | Algoritmo selecionado: %-25s    |\n", nomesAlgoritmos[escolhaALG]);
     printf("  +-----------------------------------------------------+\n");
     printf("  | [1] 10.000 elementos       [4] 200.000 elementos    |\n");
     printf("  | [2] 50.000 elementos       [5] 500.000 elementos    |\n");
