@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1790335030 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/algoritmos.c
+
+1790337226 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/menu.c
+	<stdio.h>
+
+1790344520 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/main.c
+	<stdio.h>
+	<stdlib.h>
+	"lib/algoritmos.h"
+	"lib/menu.h"
+
+1790335869 /home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/lib/algoritmos.h
+
+1790336786 /home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/lib/menu.h
+
