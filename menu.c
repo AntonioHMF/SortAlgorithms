@@ -8,12 +8,12 @@ int exibirMenuPrincipal() {
     printf("  =======================================================\n");
     printf("         AVALIACAO DE DESEMPENHO - ORDENACAO             \n");
     printf("  =======================================================\n");
-    printf("  [01] Bubble Sort            [07] Counting Sort         \n");
-    printf("  [02] Selection Sort         [08] Radix Sort            \n");
-    printf("  [03] Insertion Sort         [09] Bucket Sort           \n");
-    printf("  [04] Merge Sort             [10] Heap Sort             \n");
-    printf("  [05] Quick Sort             [11] Shell Sort            \n");
-    printf("  [06] Insertion Otimizado                               \n");
+    printf("  [01] Bubble Sort            [07] Heap Sort             \n");
+    printf("  [02] Insertion Sort         [08] Bucket Sort           \n");
+    printf("  [03] Selection Sort         [09] Radix Sort (LSD)      \n");
+    printf("  [04] Merge Sort             [10] Counting Sort         \n");
+    printf("  [05] Quick Sort             [11] Tim Sort              \n");
+    printf("  [06] Shell Sort                                        \n");
     printf("  -------------------------------------------------------\n");
     printf("  [00] Sair do Programa                                  \n");
     printf("  =======================================================\n");

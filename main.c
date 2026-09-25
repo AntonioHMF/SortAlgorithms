@@ -3,6 +3,7 @@
 #include "lib/algoritmos.h"
 #include "lib/menu.h"
 
+
 int main(){
     int escolhaALG, qtdeElem;
 
