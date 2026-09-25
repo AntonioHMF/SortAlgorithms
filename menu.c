@@ -1,6 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "menu.h"
 
+// Vetor com os nomes correspondentes a cada ID de 1 a 11
+const char *nomesAlgoritmos[] = {
+    "",                     // Índice 0 (não utilizado)
+    "Bubble Sort",          // 1
+    "Insertion Sort",       // 2
+    "Selection Sort",       // 3
+    "Merge Sort",           // 4
+    "Quick Sort",           // 5
+    "Shell Sort",           // 6
+    "Heap Sort",            // 7
+    "Bucket Sort",          // 8
+    "Radix Sort (LSD)",     // 9
+    "Counting Sort",        // 10
+    "Tim Sort"              // 11
+};
 
 int exibirMenuPrincipal() {
     int escolha;
@@ -30,7 +46,7 @@ int exibirMenuSecundario(int escolhaALG){
     printf("  +-----------------------------------------------------+\n");
     printf("  |            CONFIGURACAO DE ENTRADA DE DADOS         |\n");
     printf("  +-----------------------------------------------------+\n");
-    printf("  | Algoritmo selecionado: [%02d]                       |\n", escolhaALG);
+    printf("  | Algoritmo selecionado: [%02d]                       |\n", nomesAlgoritmos[escolhaALG]);
     printf("  +-----------------------------------------------------+\n");
     printf("  | [1] 10.000 elementos       [4] 200.000 elementos    |\n");
     printf("  | [2] 50.000 elementos       [5] 500.000 elementos    |\n");
