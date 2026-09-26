@@ -114,8 +114,6 @@ void apagarArray(int *vetor){
     }
 }
 
-
-
 void limparTela(){
     #ifdef _WIN32
         system("cls");
