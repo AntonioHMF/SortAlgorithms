@@ -1,11 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <sys/time.h>
 #include "algoritmos.h"
 #include "menu.h"
 
+#define N_Testes 10
 int main(){
-    srand(time(NULL));
+    //Criando as variáveis para marcação de tempo
+    struct timeval Tempo_inicial, Tempo_final;
+    double delta_T, tempos_Marcados[N_Testes];
+
     int escolhaALG, qtdeElem, i;
 
     do{
@@ -27,14 +31,7 @@ int main(){
             continue;
         }
 
-        int *arr = gerarArrayAleatorio(qtdeElem);
-
-        if(arr == NULL){
-            printf("Nao foi possivel alocar o array! Tente novamente!");
-            continue;
-        }
-
-        switch (escolhaALG){
+        switch(escolhaALG){
             case 1:
                 break;
             case 2:
@@ -52,16 +49,41 @@ int main(){
             case 8:
                 break;
             case 9:
+                for(i = 0; i < N_Testes; i++){
+                    //Iniciando uma semente, para os array serem aleatórios;
+                    srand(time(NULL));
 
+                    int *arr = gerarArrayAleatorio(qtdeElem);
+
+                    if(arr == NULL){
+                        printf("Nao foi possivel alocar o array! Tente novamente!");
+                        continue;
+                    }
+
+                    gettimeofday(&Tempo_inicial, NULL);
+
+                    radixSort(arr, qtdeElem);
+
+                    gettimeofday(&Tempo_final, NULL);
+
+                    delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                    tempos_Marcados[i] = delta_T;
+
+                    apagarArray(arr);
+                }
                 break;
             case 10:
                 break;
             case 11:
                 break;
-
         }
 
-        apagarArray(arr);
+        if(escolhaALG != 0){
+            exibirRelatorioResultados(escolhaALG, qtdeElem, tempos_Marcados, N_Testes);
+        }
+
+
     }while (escolhaALG != 0);
 
 

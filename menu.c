@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "menu.h"
+#include "algoritmos.h"
 
 // Vetor com os nomes correspondentes a cada ID de 1 a 11
 const char *nomesAlgoritmos[] = {
@@ -80,6 +81,73 @@ int exibirMenuSecundario(int escolhaALG){
     }
 
     return qtd;
+}
+
+double maxValorTempo(double tempos[], int nTestes){
+    double max = tempos[0];
+    for(int i = 1; i < nTestes; i++){
+            if(tempos[i] > max){
+                max = tempos[i];
+            }
+    }
+
+    return max;
+}
+
+double minValorTempo(double tempos[], int nTestes){
+    double min = tempos[0];
+    for(int i = 1; i < nTestes; i++){
+            if(tempos[i] < min){
+                min = tempos[i];
+            }
+    }
+
+    return min;
+}
+
+double sumTempo(double tempos[], int nTestes){
+    double soma = 0.0;
+    for(int i = 0; i < nTestes; i++){
+            soma += tempos[i];
+    }
+
+    return soma;
+}
+
+double medAritTempo(double soma, int nTestes){
+    return soma / nTestes;
+}
+
+void exibirRelatorioResultados(int escolhaALG, int qtdeElem, double tempos[], int nTestes) {
+    double soma = sumTempo(tempos, nTestes);
+    double melhor = minValorTempo(tempos, nTestes);
+    double pior = maxValorTempo(tempos, nTestes);
+    double mediaAritmetica = medAritTempo(soma, nTestes);
+
+    limparTela();
+    printf("\n");
+    printf("  +-----------------------------------------------------+\n");
+    printf("  |                RELATORIO DE DESEMPENHO              |\n");
+    printf("  +-----------------------------------------------------+\n");
+    printf("  | Algoritmo: %-25s    |\n", nomesAlgoritmos[escolhaALG]);
+    printf("  | Qtd. Elementos: %-20d            |\n", qtdeElem);
+    printf("  +-----------------------------------------------------+\n");
+    printf("  | AMOSTRAS DE TEMPO DE EXECUCAO (1 a %02d):           |\n", nTestes);
+
+    for (int i = 0; i < nTestes; i++) {
+        printf("  |   Teste %02d: %10.5f segundos                   |\n", i + 1, tempos[i]);
+    }
+
+    printf("  +-----------------------------------------------------+\n");
+    printf("  | ESTATISTICAS DE BENCHMARK (Média Aritmética):       |\n");
+    printf("  |   - Menor Tempo (Melhor caso): %10.5f s           |\n", melhor);
+    printf("  |   - Maior Tempo (Pior caso):   %10.5f s           |\n", pior);
+    printf("  |   - Tempo Medio (MA):          %10.5f s           |\n", mediaAritmetica);
+    printf("  +-----------------------------------------------------+\n");
+    printf("  Pressione Enter para retornar ao menu principal...");
+
+    getchar();
+    getchar(); // Pausa para leitura do usuário
 }
 
 void limparTela(){
