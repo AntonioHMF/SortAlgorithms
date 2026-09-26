@@ -41,16 +41,6 @@ void radixSort(int arr[], int n){
     }
 }
 
-int maxValor(int arr[], int n){
-    int max_val = arr[0];
-    for(int i = 1; i < n; i++){
-        if(max_val < arr[i]){
-            max_val = arr[i];
-        }
-    }
-    return max_val;
-}
-
         /********************************************************************************************************************
         *Exemplo:                                                                                                           *
         *                                                                                                                   *

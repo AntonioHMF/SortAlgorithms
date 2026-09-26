@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include "menu.h"
 
 // Vetor com os nomes correspondentes a cada ID de 1 a 11

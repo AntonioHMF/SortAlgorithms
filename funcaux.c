@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "algoritmos.h"
 
 int *gerarArrayAleatorio(int qtdeElementos){
     int *p = (int*) malloc(sizeof(int) * qtdeElementos);
@@ -30,4 +31,14 @@ void apagarArray(int *vetor){
     if(vetor != NULL){
         free(vetor);
     }
+}
+
+int maxValor(int arr[], int n){
+    int max_val = arr[0];
+    for(int i = 1; i < n; i++){
+        if(max_val < arr[i]){
+            max_val = arr[i];
+        }
+    }
+    return max_val;
 }

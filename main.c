@@ -22,7 +22,7 @@ int main(){
             qtdeElem = exibirMenuSecundario(escolhaALG);
         }else{
             printf("\nOpcao invalida! Pressione Enter para continuar...\n\n");
-            getchar();
+                    getchar();
             getchar();
             continue;
         }
@@ -52,6 +52,7 @@ int main(){
             case 8:
                 break;
             case 9:
+
                 break;
             case 10:
                 break;
