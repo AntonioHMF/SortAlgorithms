@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "menu.h"
 
 // Vetor com os nomes correspondentes a cada ID de 1 a 11
@@ -81,6 +82,39 @@ int exibirMenuSecundario(int escolhaALG){
 
     return qtd;
 }
+
+int *gerarArrayAleatorio(int qtdeElementos){
+    int *p = (int*) malloc(sizeof(int) * qtdeElementos);
+
+    if(!p){
+        return NULL;
+    }
+
+    for(int i = 0; i < qtdeElementos; i++){
+        p[i] = rand() %qtdeElementos;
+    }
+
+    embaralha(p, qtdeElementos);
+
+    return p;
+}
+
+void embaralha(int *vetor, int qtdeElementos){
+    for(int i = qtdeElementos - 1; i > 0; i--){
+        int j = rand() % (i+1);
+        int tmp = vetor[j];
+        vetor[j] = vetor[i];
+        vetor[i] = tmp;
+    }
+}
+
+void apagarArray(int *vetor){
+    if(vetor != NULL){
+        free(vetor);
+    }
+}
+
+
 
 void limparTela(){
     #ifdef _WIN32

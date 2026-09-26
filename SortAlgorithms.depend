@@ -1,12 +1,16 @@
 # depslib dependency file v1.0
-1790335030 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/algoritmos.c
-
-1790346417 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/menu.c
+1790442116 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/algoritmos.c
 	<stdio.h>
 	<stdlib.h>
+	<time.h>
+
+1790443624 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/menu.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
 	"menu.h"
 
-1790346166 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/main.c
+1790346745 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/main.c
 	<stdio.h>
 	<stdlib.h>
 	"algoritmos.h"
@@ -16,7 +20,7 @@
 
 1790336786 /home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/lib/menu.h
 
-1790339188 /home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/menu.h
+1790443653 /home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/menu.h
 
 1790337134 /home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/algoritmos.h
 
