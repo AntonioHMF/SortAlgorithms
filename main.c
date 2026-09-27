@@ -3,7 +3,7 @@
 #include <sys/time.h>
 #include "algoritmos.h"
 #include "menu.h"
-
+#include <time.h>
 #define N_Testes 10
 int main(){
     //Criando as variáveis para marcação de tempo
@@ -34,7 +34,6 @@ int main(){
         switch(escolhaALG){
             case 1:
                 for(i = 0; i < N_Testes; i++){
-                    //Iniciando uma semente, para os array serem aleatórios;
                     srand(time(NULL));
 
                     int *arr = gerarArrayAleatorio(qtdeElem);
@@ -58,10 +57,7 @@ int main(){
                 }
                 break;
             case 2:
-                break;
-            case 3:
                 for(i = 0; i < N_Testes; i++){
-                    //Iniciando uma semente, para os array serem aleatórios;
                     srand(time(NULL));
 
                     int *arr = gerarArrayAleatorio(qtdeElem);
@@ -73,7 +69,31 @@ int main(){
 
                     gettimeofday(&Tempo_inicial, NULL);
 
-                    selectionSort(arr, qtdeElem);
+                    bubbleSort(arr, qtdeElem);
+
+                    gettimeofday(&Tempo_final, NULL);
+
+                    delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                    tempos_Marcados[i] = delta_T;
+
+                    apagarArray(arr);
+                }
+                break;
+            case 3:
+                for(i = 0; i < N_Testes; i++){
+                    srand(time(NULL));
+
+                    int *arr = gerarArrayAleatorio(qtdeElem);
+
+                    if(arr == NULL){
+                        printf("Nao foi possivel alocar o array! Tente novamente!");
+                        continue;
+                    }
+
+                    gettimeofday(&Tempo_inicial, NULL);
+
+                    insertionSort(arr, qtdeElem);
 
                     gettimeofday(&Tempo_final, NULL);
 
@@ -85,6 +105,28 @@ int main(){
                 }
                 break;
             case 4:
+                for(i = 0; i < N_Testes; i++){
+                    srand(time(NULL));
+
+                    int *arr = gerarArrayAleatorio(qtdeElem);
+
+                    if(arr == NULL){
+                        printf("Nao foi possivel alocar o array! Tente novamente!");
+                        continue;
+                    }
+
+                    gettimeofday(&Tempo_inicial, NULL);
+
+                    mergeSort(arr, 0, qtdeElem-1);
+
+                    gettimeofday(&Tempo_final, NULL);
+
+                    delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                    tempos_Marcados[i] = delta_T;
+
+                    apagarArray(arr);
+                }
                 break;
             case 5:
                 break;
