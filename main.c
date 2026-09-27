@@ -265,7 +265,7 @@ int main(){
 
                     gettimeofday(&Tempo_inicial, NULL);
 
-                    bucketSort(arr, qtdeElem);
+                    countingSort(arr, qtdeElem);
 
                     gettimeofday(&Tempo_final, NULL);
 

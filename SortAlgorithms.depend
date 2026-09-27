@@ -68,3 +68,8 @@
 1790477253 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/bucketSort.c
 	<stdio.h>
 
+1790478273 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/countingSort.c
+	<stdio.h>
+	<stdlib.h>
+	"algoritmos.h"
+
