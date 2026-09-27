@@ -10,7 +10,7 @@
 	"menu.h"
 	"algoritmos.h"
 
-1790470095 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/main.c
+1790472465 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/main.c
 	<stdio.h>
 	<stdlib.h>
 	<sys/time.h>
@@ -24,7 +24,7 @@
 
 1790452306 /home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/menu.h
 
-1790470621 /home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/algoritmos.h
+1790472439 /home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/algoritmos.h
 
 1790465763 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/radixSort.c
 	<stdio.h>
@@ -54,6 +54,10 @@
 	"algoritmos.h"
 
 1790470916 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/quickSort.c
+	<stdio.h>
+	"algoritmos.h"
+
+1790472491 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/shellSort.c
 	<stdio.h>
 	"algoritmos.h"
 

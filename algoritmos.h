@@ -33,6 +33,16 @@ void quickSort(int *arr, int inicio, int fim);
 
 int particiona(int *arr, int inicio, int fim);
 
+//Setor - Shell Sort
+
+void shellSort(int *arr, int n);
+
+//Setor - Heap Sort
+
+void heapSort(int *arr, int n);
+
+void criaHeap(int *arr, int )
+
 //Setor - Radix Sort
 void CountingSort(int *arr, int n, int exp);
 
