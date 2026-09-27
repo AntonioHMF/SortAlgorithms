@@ -32,7 +32,22 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="algoritmos.h" />
+		<Unit filename="bubbleSort.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="bucketSort.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="countingSort.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="funcaux.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="heapSort.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="insertionSort.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="main.c">
@@ -42,7 +57,22 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="menu.h" />
+		<Unit filename="mergeSort.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="quickSort.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="radixSort.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="selectionSort.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="shellSort.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="timSort.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

@@ -1,6 +1,10 @@
 //Funções Auxiliares
 int *gerarArrayAleatorio(int qtdeElementos);
 
+int *gerarArrayOrdenado(int qtdeElementos);
+
+int *gerarArrayOrdemInversa(int qtdeElementos);
+
 void embaralha(int *vetor, int qtdeElementos);
 
 void apagarArray(int *vetor);
@@ -8,6 +12,14 @@ void apagarArray(int *vetor);
 int maxValor(int arr[], int n);
 
 void troca(int *x, int *y);
+
+double maxValorTempo(double tempos[], int nTestes);
+
+double minValorTempo(double tempos[], int nTestes);
+
+double sumTempo(double tempos[], int nTestes);
+
+double medAritTempo(double soma, int nTestes);
 
 //Setor - Bubble Sort
 
@@ -65,5 +77,7 @@ void reverse(int *arr, int start, int end);
 void auxInsertionSort(int *arr, int left, int right);
 
 void auxMerge(int *arr, int l, int m, int r);
+
+void timSort(int arr[], int n);
 
 

@@ -83,18 +83,7 @@ int exibirMenuSecundario(int escolhaALG){
     return qtd;
 }
 
-double maxValorTempo(double tempos[], int nTestes){
-    double max = tempos[0];
-    for(int i = 1; i < nTestes; i++){
-            if(tempos[i] > max){
-                max = tempos[i];
-            }
-    }
-
-    return max;
-}
-
-void exibirRelatorioResultados(int escolhaALG, int qtdeElem, double tempos[], int nTestes) {
+void exibirRelatorioResultados(int escolhaALG, int qtdeElem, double tempos[], int nTestes, double melhor_caso, double pior_caso) {
     double soma = sumTempo(tempos, nTestes);
     double melhor = minValorTempo(tempos, nTestes);
     double pior = maxValorTempo(tempos, nTestes);
@@ -105,7 +94,7 @@ void exibirRelatorioResultados(int escolhaALG, int qtdeElem, double tempos[], in
     printf("  +-----------------------------------------------------+\n");
     printf("  |                RELATORIO DE DESEMPENHO              |\n");
     printf("  +-----------------------------------------------------+\n");
-    printf("  | Algoritmo: %-25s    |\n", nomesAlgoritmos[escolhaALG]);
+    printf("  | Algoritmo: %-25s              |\n", nomesAlgoritmos[escolhaALG]);
     printf("  | Qtd. Elementos: %-20d            |\n", qtdeElem);
     printf("  +-----------------------------------------------------+\n");
     printf("  | AMOSTRAS DE TEMPO DE EXECUCAO (1 a %02d):           |\n", nTestes);
@@ -116,8 +105,8 @@ void exibirRelatorioResultados(int escolhaALG, int qtdeElem, double tempos[], in
 
     printf("  +-----------------------------------------------------+\n");
     printf("  | ESTATISTICAS DE BENCHMARK (Média Aritmética):       |\n");
-    printf("  |   - Menor Tempo (Melhor caso): %10.5f s           |\n", melhor);
-    printf("  |   - Maior Tempo (Pior caso):   %10.5f s           |\n", pior);
+    printf("  |   - Menor Tempo (Melhor caso): %10.5f s           |\n", melhor_caso);
+    printf("  |   - Maior Tempo (Pior caso):   %10.5f s           |\n", pior_caso);
     printf("  |   - Tempo Medio (MA):          %10.5f s           |\n", mediaAritmetica);
     printf("  +-----------------------------------------------------+\n");
     printf("  Pressione Enter para retornar ao menu principal...");

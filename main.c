@@ -9,11 +9,13 @@
 #define N_Testes 10
 
 int main(){
+    srand(time(NULL));
     //Criando as variáveis para marcação de tempo
     struct timeval Tempo_inicial, Tempo_final;
-    double delta_T, tempos_Marcados[N_Testes];
+    double delta_T, tempos_Marcados[N_Testes], melhor_Caso, pior_Caso;
 
     int escolhaALG, qtdeElem, i;
+    int *arr = NULL;
 
     do{
         limparTela();
@@ -37,9 +39,7 @@ int main(){
         switch(escolhaALG){
             case 1:
                 for(i = 0; i < N_Testes; i++){
-                    srand(time(NULL));
-
-                    int *arr = gerarArrayAleatorio(qtdeElem);
+                    arr = gerarArrayAleatorio(qtdeElem);
 
                     if(arr == NULL){
                         printf("Nao foi possivel alocar o array! Tente novamente!");
@@ -58,36 +58,50 @@ int main(){
 
                     apagarArray(arr);
                 }
+
+                //Testando o melhor caso
+                arr = gerarArrayOrdenado(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                bubbleSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                melhor_Caso = delta_T;
+
+                apagarArray(arr);
+
+                //Testando o pior caso
+                arr = gerarArrayOrdemInversa(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                bubbleSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                pior_Caso = delta_T;
+
+                apagarArray(arr);
                 break;
             case 2:
                 for(i = 0; i < N_Testes; i++){
-                    srand(time(NULL));
-
-                    int *arr = gerarArrayAleatorio(qtdeElem);
-
-                    if(arr == NULL){
-                        printf("Nao foi possivel alocar o array! Tente novamente!");
-                        continue;
-                    }
-
-                    gettimeofday(&Tempo_inicial, NULL);
-
-                    bubbleSort(arr, qtdeElem);
-
-                    gettimeofday(&Tempo_final, NULL);
-
-                    delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
-
-                    tempos_Marcados[i] = delta_T;
-
-                    apagarArray(arr);
-                }
-                break;
-            case 3:
-                for(i = 0; i < N_Testes; i++){
-                    srand(time(NULL));
-
-                    int *arr = gerarArrayAleatorio(qtdeElem);
+                    arr = gerarArrayAleatorio(qtdeElem);
 
                     if(arr == NULL){
                         printf("Nao foi possivel alocar o array! Tente novamente!");
@@ -106,12 +120,112 @@ int main(){
 
                     apagarArray(arr);
                 }
+
+                //Testando o melhor caso
+                arr = gerarArrayOrdenado(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                insertionSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                melhor_Caso = delta_T;
+
+                apagarArray(arr);
+
+                //Testando o pior caso
+                arr = gerarArrayOrdemInversa(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                insertionSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                pior_Caso = delta_T;
+
+                apagarArray(arr);
+                break;
+            case 3:
+                for(i = 0; i < N_Testes; i++){
+                    arr = gerarArrayAleatorio(qtdeElem);
+
+                    if(arr == NULL){
+                        printf("Nao foi possivel alocar o array! Tente novamente!");
+                        continue;
+                    }
+
+                    gettimeofday(&Tempo_inicial, NULL);
+
+                    selectionSort(arr, qtdeElem);
+
+                    gettimeofday(&Tempo_final, NULL);
+
+                    delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                    tempos_Marcados[i] = delta_T;
+
+                    apagarArray(arr);
+                }
+
+                //Testando o melhor caso
+                arr = gerarArrayOrdenado(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                selectionSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                melhor_Caso = delta_T;
+
+                apagarArray(arr);
+
+                //Testando o pior caso
+                arr = gerarArrayOrdemInversa(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                selectionSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                pior_Caso = delta_T;
+
+                apagarArray(arr);
                 break;
             case 4:
                 for(i = 0; i < N_Testes; i++){
-                    srand(time(NULL));
-
-                    int *arr = gerarArrayAleatorio(qtdeElem);
+                    arr = gerarArrayAleatorio(qtdeElem);
 
                     if(arr == NULL){
                         printf("Nao foi possivel alocar o array! Tente novamente!");
@@ -130,12 +244,50 @@ int main(){
 
                     apagarArray(arr);
                 }
+
+                //Testando o melhor caso
+                arr = gerarArrayOrdenado(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                mergeSort(arr, 0, qtdeElem - 1);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                melhor_Caso = delta_T;
+
+                apagarArray(arr);
+
+                //Testando o pior caso
+                arr = gerarArrayOrdemInversa(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                mergeSort(arr, 0,  qtdeElem - 1);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                pior_Caso = delta_T;
+
+                apagarArray(arr);
                 break;
             case 5:
                 for(i = 0; i < N_Testes; i++){
-                    srand(time(NULL));
-
-                    int *arr = gerarArrayAleatorio(qtdeElem);
+                    arr = gerarArrayAleatorio(qtdeElem);
 
                     if(arr == NULL){
                         printf("Nao foi possivel alocar o array! Tente novamente!");
@@ -154,12 +306,50 @@ int main(){
 
                     apagarArray(arr);
                 }
+
+                //Testando o melhor caso
+                arr = gerarArrayOrdenado(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                quickSort(arr, 0, qtdeElem - 1);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                melhor_Caso = delta_T;
+
+                apagarArray(arr);
+
+                //Testando o pior caso
+                arr = gerarArrayOrdemInversa(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                quickSort(arr, 0, qtdeElem - 1);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                pior_Caso = delta_T;
+
+                apagarArray(arr);
                 break;
             case 6:
                 for(i = 0; i < N_Testes; i++){
-                    srand(time(NULL));
-
-                    int *arr = gerarArrayAleatorio(qtdeElem);
+                    arr = gerarArrayAleatorio(qtdeElem);
 
                     if(arr == NULL){
                         printf("Nao foi possivel alocar o array! Tente novamente!");
@@ -178,12 +368,50 @@ int main(){
 
                     apagarArray(arr);
                 }
+
+                //Testando o melhor caso
+                arr = gerarArrayOrdenado(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                shellSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                melhor_Caso = delta_T;
+
+                apagarArray(arr);
+
+                //Testando o pior caso
+                arr = gerarArrayOrdemInversa(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                shellSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                pior_Caso = delta_T;
+
+                apagarArray(arr);
                 break;
             case 7:
                 for(i = 0; i < N_Testes; i++){
-                    srand(time(NULL));
-
-                    int *arr = gerarArrayAleatorio(qtdeElem);
+                    arr = gerarArrayAleatorio(qtdeElem);
 
                     if(arr == NULL){
                         printf("Nao foi possivel alocar o array! Tente novamente!");
@@ -202,12 +430,50 @@ int main(){
 
                     apagarArray(arr);
                 }
+
+                //Testando o melhor caso
+                arr = gerarArrayOrdenado(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                heapSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                melhor_Caso = delta_T;
+
+                apagarArray(arr);
+
+                //Testando o pior caso
+                arr = gerarArrayOrdemInversa(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                heapSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                pior_Caso = delta_T;
+
+                apagarArray(arr);
                 break;
             case 8:
                 for(i = 0; i < N_Testes; i++){
-                    srand(time(NULL));
-
-                    int *arr = gerarArrayAleatorio(qtdeElem);
+                    arr = gerarArrayAleatorio(qtdeElem);
 
                     if(arr == NULL){
                         printf("Nao foi possivel alocar o array! Tente novamente!");
@@ -226,13 +492,51 @@ int main(){
 
                     apagarArray(arr);
                 }
+
+                //Testando o melhor caso
+                arr = gerarArrayOrdenado(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                bucketSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                melhor_Caso = delta_T;
+
+                apagarArray(arr);
+
+                //Testando o pior caso
+                arr = gerarArrayOrdemInversa(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                bucketSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                pior_Caso = delta_T;
+
+                apagarArray(arr);
                 break;
             case 9:
                 for(i = 0; i < N_Testes; i++){
                     //Iniciando uma semente, para os array serem aleatórios;
-                    srand(time(NULL));
-
-                    int *arr = gerarArrayAleatorio(qtdeElem);
+                    arr = gerarArrayAleatorio(qtdeElem);
 
                     if(arr == NULL){
                         printf("Nao foi possivel alocar o array! Tente novamente!");
@@ -251,12 +555,50 @@ int main(){
 
                     apagarArray(arr);
                 }
+
+                //Testando o melhor caso
+                arr = gerarArrayOrdenado(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                radixSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                melhor_Caso = delta_T;
+
+                apagarArray(arr);
+
+                //Testando o pior caso
+                arr = gerarArrayOrdemInversa(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                radixSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                pior_Caso = delta_T;
+
+                apagarArray(arr);
                 break;
             case 10:
                 for(i = 0; i < N_Testes; i++){
-                    srand(time(NULL));
-
-                    int *arr = gerarArrayAleatorio(qtdeElem);
+                    arr = gerarArrayAleatorio(qtdeElem);
 
                     if(arr == NULL){
                         printf("Nao foi possivel alocar o array! Tente novamente!");
@@ -275,12 +617,51 @@ int main(){
 
                     apagarArray(arr);
                 }
+
+                //Testando o melhor caso
+                arr = gerarArrayOrdenado(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                countingSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                melhor_Caso = delta_T;
+
+                apagarArray(arr);
+
+                //Testando o pior caso
+                arr = gerarArrayOrdemInversa(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                countingSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                pior_Caso = delta_T;
+
+                apagarArray(arr);
                 break;
             case 11:
+                //Quantidade específica de testes aleatórios
                 for(i = 0; i < N_Testes; i++){
-                    srand(time(NULL));
-
-                    int *arr = gerarArrayAleatorio(qtdeElem);
+                    arr = gerarArrayAleatorio(qtdeElem);
 
                     if(arr == NULL){
                         printf("Nao foi possivel alocar o array! Tente novamente!");
@@ -289,7 +670,7 @@ int main(){
 
                     gettimeofday(&Tempo_inicial, NULL);
 
-                    countingSort(arr, qtdeElem);
+                    timSort(arr, qtdeElem);
 
                     gettimeofday(&Tempo_final, NULL);
 
@@ -299,11 +680,51 @@ int main(){
 
                     apagarArray(arr);
                 }
+
+                //Testando o melhor caso
+                arr = gerarArrayOrdenado(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                timSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                melhor_Caso = delta_T;
+
+                apagarArray(arr);
+
+                //Testando o pior caso
+                arr = gerarArrayOrdemInversa(qtdeElem);
+
+                if(arr == NULL){
+                    printf("Nao foi possivel alocar o array! Tente novamente!");
+                    break;
+                }
+
+                gettimeofday(&Tempo_inicial, NULL);
+
+                timSort(arr, qtdeElem);
+
+                gettimeofday(&Tempo_final, NULL);
+
+                delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                pior_Caso = delta_T;
+
+                apagarArray(arr);
                 break;
         }
 
         if(escolhaALG != 0){
-            exibirRelatorioResultados(escolhaALG, qtdeElem, tempos_Marcados, N_Testes);
+            exibirRelatorioResultados(escolhaALG, qtdeElem, tempos_Marcados, N_Testes, melhor_Caso, pior_Caso);
         }
 
 

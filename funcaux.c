@@ -10,10 +10,38 @@ int *gerarArrayAleatorio(int qtdeElementos){
     }
 
     for(int i = 0; i < qtdeElementos; i++){
-        p[i] = rand() %qtdeElementos;
+        p[i] = rand() % qtdeElementos;
     }
 
     embaralha(p, qtdeElementos);
+
+    return p;
+}
+
+int *gerarArrayOrdenado(int qtdeElementos){
+    int *p = (int*) malloc(sizeof(int) * qtdeElementos);
+
+    if(!p){
+        return NULL;
+    }
+
+    for(int i = 0; i < qtdeElementos; i++){
+        p[i] = i + 1;
+    }
+
+    return p;
+}
+
+int *gerarArrayOrdemInversa(int qtdeElementos){
+    int *p = (int*) malloc(sizeof(int) * qtdeElementos);
+
+    if(!p){
+        return NULL;
+    }
+
+    for(int i = 0; i < qtdeElementos; i++){
+        p[i] = qtdeElementos - i;
+    }
 
     return p;
 }
@@ -49,6 +77,17 @@ void troca(int *x, int *y){
     *y = tmp;
 }
 
+double maxValorTempo(double tempos[], int nTestes){
+    double max = tempos[0];
+    for(int i = 1; i < nTestes; i++){
+            if(tempos[i] > max){
+                max = tempos[i];
+            }
+    }
+
+    return max;
+}
+
 double minValorTempo(double tempos[], int nTestes){
     double min = tempos[0];
     for(int i = 1; i < nTestes; i++){
@@ -72,3 +111,4 @@ double sumTempo(double tempos[], int nTestes){
 double medAritTempo(double soma, int nTestes){
     return soma / nTestes;
 }
+
