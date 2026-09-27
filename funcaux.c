@@ -42,3 +42,9 @@ int maxValor(int arr[], int n){
     }
     return max_val;
 }
+
+void troca(int *x, int *y){
+    int tmp = *x;
+    *x = *y;
+    *y = tmp;
+}

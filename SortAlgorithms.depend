@@ -10,7 +10,7 @@
 	"menu.h"
 	"algoritmos.h"
 
-1790469059 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/main.c
+1790470095 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/main.c
 	<stdio.h>
 	<stdlib.h>
 	<sys/time.h>
@@ -24,7 +24,7 @@
 
 1790452306 /home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/menu.h
 
-1790468323 /home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/algoritmos.h
+1790470621 /home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/algoritmos.h
 
 1790465763 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/radixSort.c
 	<stdio.h>
@@ -32,24 +32,28 @@
 	<time.h>
 	<stdlib.h>
 
-1790449297 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/funcaux.c
+1790470663 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/funcaux.c
 	<stdio.h>
 	<stdlib.h>
 	"algoritmos.h"
 
-1790466134 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/bubbleSort.c
+1790470866 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/bubbleSort.c
 	<stdio.h>
 	"algoritmos.h"
 
-1790467684 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/selectionSort.c
+1790470805 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/selectionSort.c
 	<stdio.h>
 	"algoritmos.h"
 
 1790468136 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/insertionSort.c
 	<stdio.h>
 
-1790468956 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/mergeSort.c
+1790469247 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/mergeSort.c
 	<stdio.h>
 	<stdlib.h>
+	"algoritmos.h"
+
+1790470916 source:/home/antonio/Documentos/EstruturaDeDados2/SortAlgorithms/quickSort.c
+	<stdio.h>
 	"algoritmos.h"
 

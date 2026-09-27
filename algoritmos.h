@@ -5,6 +5,10 @@ void embaralha(int *vetor, int qtdeElementos);
 
 void apagarArray(int *vetor);
 
+int maxValor(int arr[], int n);
+
+void troca(int *x, int *y);
+
 //Setor - Bubble Sort
 
 void bubbleSort(int *arr, int n);
@@ -22,6 +26,12 @@ void insertionSort(int *arr, int n);
 void mergeSort(int *arr, int inicio, int fim);
 
 void merge(int *arr, int inicio, int meio, int fim);
+
+//Setor - Quick Sort
+
+void quickSort(int *arr, int inicio, int fim);
+
+int particiona(int *arr, int inicio, int fim);
 
 //Setor - Radix Sort
 void CountingSort(int *arr, int n, int exp);

@@ -2,7 +2,7 @@
 #include "algoritmos.h"
 
 void selectionSort(int *arr, int n){
-    int i, j, menor, troca;
+    int i, j, menor;
     for(i = 0; i < n - 1; i++){
             menor = i;
         for(j = i + 1; j < n; j++){
@@ -11,9 +11,7 @@ void selectionSort(int *arr, int n){
             }
         }
         if(i != menor){
-            troca = arr[i];
-            arr[i] = arr[menor];
-            arr[menor] = troca;
+            troca(&arr[i], &arr[menor]);
         }
     }
 }
