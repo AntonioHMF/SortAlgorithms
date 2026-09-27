@@ -9,6 +9,12 @@ void apagarArray(int *vetor);
 
 void bubbleSort(int *arr, int n);
 
+//Setor - Selection Sort
+
+void selectionSort(int *arr, int n);
+
+//Setor - Insertion Sort
+
 //Setor - Radix Sort
 void CountingSort(int *arr, int n, int exp);
 
