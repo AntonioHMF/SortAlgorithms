@@ -48,3 +48,27 @@ void troca(int *x, int *y){
     *x = *y;
     *y = tmp;
 }
+
+double minValorTempo(double tempos[], int nTestes){
+    double min = tempos[0];
+    for(int i = 1; i < nTestes; i++){
+            if(tempos[i] < min){
+                min = tempos[i];
+            }
+    }
+
+    return min;
+}
+
+double sumTempo(double tempos[], int nTestes){
+    double soma = 0.0;
+    for(int i = 0; i < nTestes; i++){
+            soma += tempos[i];
+    }
+
+    return soma;
+}
+
+double medAritTempo(double soma, int nTestes){
+    return soma / nTestes;
+}

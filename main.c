@@ -4,7 +4,10 @@
 #include "algoritmos.h"
 #include "menu.h"
 #include <time.h>
+
+
 #define N_Testes 10
+
 int main(){
     //Criando as variáveis para marcação de tempo
     struct timeval Tempo_inicial, Tempo_final;

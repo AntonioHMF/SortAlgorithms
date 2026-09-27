@@ -41,7 +41,7 @@ void shellSort(int *arr, int n);
 
 void heapSort(int *arr, int n);
 
-void criaHeap(int *arr, int )
+void criaHeap(int *arr, int i, int f);
 
 //Setor - Radix Sort
 void CountingSort(int *arr, int n, int exp);
