@@ -33,6 +33,29 @@ int main(){
 
         switch(escolhaALG){
             case 1:
+                for(i = 0; i < N_Testes; i++){
+                    //Iniciando uma semente, para os array serem aleatórios;
+                    srand(time(NULL));
+
+                    int *arr = gerarArrayAleatorio(qtdeElem);
+
+                    if(arr == NULL){
+                        printf("Nao foi possivel alocar o array! Tente novamente!");
+                        continue;
+                    }
+
+                    gettimeofday(&Tempo_inicial, NULL);
+
+                    bubbleSort(arr, qtdeElem);
+
+                    gettimeofday(&Tempo_final, NULL);
+
+                    delta_T = (Tempo_final.tv_sec + Tempo_final.tv_usec / 1000000.0) - (Tempo_inicial.tv_sec + Tempo_inicial.tv_usec / 1000000.0);
+
+                    tempos_Marcados[i] = delta_T;
+
+                    apagarArray(arr);
+                }
                 break;
             case 2:
                 break;
