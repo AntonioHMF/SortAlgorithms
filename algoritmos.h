@@ -43,8 +43,12 @@ void heapSort(int *arr, int n);
 
 void criaHeap(int *arr, int i, int f);
 
+//Setor - Bucket Sort
+
+void bucketSort(int *arr, int n);
+
 //Setor - Radix Sort
-void CountingSort(int *arr, int n, int exp);
+void placeCountingSort(int *arr, int n, int exp);
 
 void radixSort(int *arr, int n);
 

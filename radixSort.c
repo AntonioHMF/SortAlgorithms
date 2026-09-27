@@ -3,7 +3,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-void countingSort(int *arr, int n, int exp){
+void placeCountingSort(int *arr, int n, int exp){
     int *output = (int*) malloc(n * sizeof(int));
     int count[10] = {0};
 
@@ -37,7 +37,7 @@ void radixSort(int *arr, int n){
     int max_val = maxValor(arr, n);
 
     for(int exp = 1; max_val / exp > 0; exp *= 10){
-        countingSort(arr, n, exp);
+        placeCountingSort(arr, n, exp);
     }
 }
 
