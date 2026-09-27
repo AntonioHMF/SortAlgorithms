@@ -52,4 +52,18 @@ void placeCountingSort(int *arr, int n, int exp);
 
 void radixSort(int *arr, int n);
 
+//Setor - Counting Sort
+
+void countingSort(int *arr, int n);
+
+//Setor - Tim Sort
+
+int min(int a, int b);
+
+void reverse(int *arr, int start, int end);
+
+void auxInsertionSort(int *arr, int left, int right);
+
+void auxMerge(int *arr, int l, int m, int r);
+
 
