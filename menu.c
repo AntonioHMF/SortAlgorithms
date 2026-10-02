@@ -94,25 +94,25 @@ void exibirRelatorioResultados(int escolhaALG, int qtdeElem, double tempos[], in
     printf("  +-----------------------------------------------------+\n");
     printf("  |                RELATORIO DE DESEMPENHO              |\n");
     printf("  +-----------------------------------------------------+\n");
-    printf("  | Algoritmo: %-25s              |\n", nomesAlgoritmos[escolhaALG]);
-    printf("  | Qtd. Elementos: %-20d            |\n", qtdeElem);
+    printf("  | Algoritmo: %-25s                |\n", nomesAlgoritmos[escolhaALG]);
+    printf("  | Qtd. Elementos: %-20d                |\n", qtdeElem);
     printf("  +-----------------------------------------------------+\n");
-    printf("  | AMOSTRAS DE TEMPO DE EXECUCAO (1 a %02d):           |\n", nTestes);
+    printf("  | AMOSTRAS DE TEMPO DE EXECUCAO (1 a %02d):             |\n", nTestes);
 
     for (int i = 0; i < nTestes; i++) {
-        printf("  |   Teste %02d: %10.5f segundos                   |\n", i + 1, tempos[i]);
+        printf("  |   Teste %02d: %10.5f segundos                     |\n", i + 1, tempos[i]);
     }
 
     printf("  +-----------------------------------------------------+\n");
     printf("  | ESTATISTICAS DE BENCHMARK (Média Aritmética):       |\n");
-    printf("  |   - Menor Tempo (Melhor caso): %10.5f s           |\n", melhor_caso);
-    printf("  |   - Maior Tempo (Pior caso):   %10.5f s           |\n", pior_caso);
-    printf("  |   - Tempo Medio (MA):          %10.5f s           |\n", mediaAritmetica);
+    printf("  |   - Menor Tempo (Melhor caso): %10.5f s         |\n", melhor_caso);
+    printf("  |   - Maior Tempo (Pior caso):   %10.5f s         |\n", pior_caso);
+    printf("  |   - Tempo Medio (MA):          %10.5f s         |\n", mediaAritmetica);
     printf("  +-----------------------------------------------------+\n");
     printf("  Pressione Enter para retornar ao menu principal...");
 
     getchar();
-    getchar(); // Pausa para leitura do usuário
+    getchar();
 }
 
 void limparTela(){
